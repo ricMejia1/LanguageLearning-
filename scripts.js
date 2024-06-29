@@ -14,17 +14,30 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineList.appendChild(listItem);
     });
 
+    // Load love notes from localStorage
+    const notesContainer = document.getElementById('notesContainer');
+    const savedNotes = JSON.parse(localStorage.getItem('loveNotes')) || [];
+    savedNotes.forEach(note => {
+        addNoteToDOM(note);
+    });
+
     // Add new love note functionality
     const newNoteButton = document.getElementById('newNoteButton');
-    const notesContainer = document.getElementById('notesContainer');
-
     newNoteButton.addEventListener('click', function() {
         const noteText = prompt('Enter your love note:');
         if (noteText) {
-            const noteDiv = document.createElement('div');
-            noteDiv.className = 'note';
-            noteDiv.textContent = noteText;
-            notesContainer.appendChild(noteDiv);
+            // Save the new note
+            savedNotes.push(noteText);
+            localStorage.setItem('loveNotes', JSON.stringify(savedNotes));
+            addNoteToDOM(noteText);
         }
     });
+
+    // Function to add a note to the DOM
+    function addNoteToDOM(noteText) {
+        const noteDiv = document.createElement('div');
+        noteDiv.className = 'note';
+        noteDiv.textContent = noteText;
+        notesContainer.appendChild(noteDiv);
+    }
 });
