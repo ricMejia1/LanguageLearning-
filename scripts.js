@@ -4,6 +4,15 @@ const vocabulary = [
     // Add more vocabulary items here
 ];
 
+const quizQuestions = [
+    {
+        question: 'What is the pinyin for 你好?',
+        options: ['nǐ hǎo', 'xièxiè', 'zàijiàn'],
+        answer: 'nǐ hǎo'
+    },
+    // Add more questions here
+];
+
 function displayVocabulary() {
     const vocabList = document.getElementById('vocab-list');
     vocabulary.forEach(word => {
@@ -17,17 +26,6 @@ function displayVocabulary() {
         vocabList.appendChild(wordDiv);
     });
 }
-
-document.addEventListener('DOMContentLoaded', displayVocabulary);
-
-const quizQuestions = [
-    {
-        question: 'What is the pinyin for 你好?',
-        options: ['nǐ hǎo', 'xièxiè', 'zàijiàn'],
-        answer: 'nǐ hǎo'
-    },
-    // Add more questions here
-];
 
 function displayQuiz() {
     const quizDiv = document.getElementById('quiz');
