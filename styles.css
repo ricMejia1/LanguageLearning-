@@ -41,3 +41,10 @@ section {
 .quiz-question {
     margin-bottom: 15px;
 }
+
+.grammar-lesson {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
