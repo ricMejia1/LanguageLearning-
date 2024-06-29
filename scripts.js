@@ -48,6 +48,58 @@ const vocabulary = [
     { pinyin: 'péngyou', character: '朋友', translation: 'Friend' }
 ];
 
+const quizQuestions = [
+    {
+        question: 'What is the pinyin for 你好?',
+        options: ['nǐ hǎo', 'xièxiè', 'zàijiàn'],
+        answer: 'nǐ hǎo'
+    },
+    {
+        question: 'What is the translation for 谢谢?',
+        options: ['Goodbye', 'Thank you', 'Sorry'],
+        answer: 'Thank you'
+    },
+    {
+        question: 'What is the character for "Sorry"?',
+        options: ['对不起', '请', '我'],
+        answer: '对不起'
+    },
+    {
+        question: 'What is the translation for 吃?',
+        options: ['Eat', 'Drink', 'Water'],
+        answer: 'Eat'
+    },
+    {
+        question: 'What is the pinyin for 水?',
+        options: ['shuǐ', 'hē', 'fàn'],
+        answer: 'shuǐ'
+    }
+];
+
+const grammarLessons = [
+    {
+        title: 'Basic Sentence Structure',
+        content: `
+            <p>Chinese sentence structure is subject-verb-object (SVO), similar to English. For example:</p>
+            <p>我 (wǒ) 吃 (chī) 饭 (fàn) - I eat rice.</p>
+        `
+    },
+    {
+        title: 'Questions with 吗',
+        content: `
+            <p>To turn a statement into a yes-no question, simply add the particle 吗 (ma) at the end:</p>
+            <p>你好吗？(Nǐ hǎo ma?) - Are you good?</p>
+        `
+    },
+    {
+        title: 'The Particle 了',
+        content: `
+            <p>The particle 了 (le) indicates a completed action or a change of state. For example:</p>
+            <p>我吃了饭 (Wǒ chīle fàn) - I have eaten.</p>
+        `
+    }
+];
+
 let currentCard = 0;
 let showTranslation = false;
 
