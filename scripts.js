@@ -20,3 +20,50 @@ function displayVocabulary() {
 
 document.addEventListener('DOMContentLoaded', displayVocabulary);
 
+const quizQuestions = [
+    {
+        question: 'What is the pinyin for 你好?',
+        options: ['nǐ hǎo', 'xièxiè', 'zàijiàn'],
+        answer: 'nǐ hǎo'
+    },
+    // Add more questions here
+];
+
+function displayQuiz() {
+    const quizDiv = document.getElementById('quiz');
+    quizQuestions.forEach((q, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('quiz-question');
+        questionDiv.innerHTML = `
+            <p>${q.question}</p>
+            ${q.options.map(option => `
+                <label>
+                    <input type="radio" name="question${index}" value="${option}">
+                    ${option}
+                </label>
+            `).join('')}
+        `;
+        quizDiv.appendChild(questionDiv);
+    });
+
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+    submitButton.addEventListener('click', checkAnswers);
+    quizDiv.appendChild(submitButton);
+}
+
+function checkAnswers() {
+    let score = 0;
+    quizQuestions.forEach((q, index) => {
+        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+        if (selectedOption && selectedOption.value === q.answer) {
+            score++;
+        }
+    });
+    alert(`Your score is ${score} out of ${quizQuestions.length}`);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayVocabulary();
+    displayQuiz();
+});
