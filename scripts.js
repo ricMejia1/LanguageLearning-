@@ -1,3 +1,4 @@
+// Vocabulary data
 const vocabulary = [
     { pinyin: 'nǐ hǎo', character: '你好', translation: 'Hello' },
     { pinyin: 'xièxiè', character: '谢谢', translation: 'Thank you' },
@@ -48,6 +49,7 @@ const vocabulary = [
     { pinyin: 'péngyou', character: '朋友', translation: 'Friend' }
 ];
 
+// Quiz questions
 const quizQuestions = [
     {
         question: 'What is the pinyin for 你好?',
@@ -76,6 +78,7 @@ const quizQuestions = [
     }
 ];
 
+// Grammar lessons
 const grammarLessons = [
     {
         title: 'Basic Sentence Structure',
@@ -103,6 +106,7 @@ const grammarLessons = [
 let currentCard = 0;
 let showTranslation = false;
 
+// Display flashcard
 function displayFlashcard() {
     const flashcard = document.getElementById('flashcard');
     const word = vocabulary[currentCard];
@@ -113,17 +117,20 @@ function displayFlashcard() {
     `;
 }
 
+// Show next flashcard
 function nextFlashcard() {
     currentCard = (currentCard + 1) % vocabulary.length;
     showTranslation = false;
     displayFlashcard();
 }
 
+// Toggle translation visibility
 function toggleTranslation() {
     showTranslation = !showTranslation;
     displayFlashcard();
 }
 
+// Display vocabulary list
 function displayVocabulary() {
     const vocabList = document.getElementById('vocab-list');
     vocabList.innerHTML = '';
@@ -139,6 +146,7 @@ function displayVocabulary() {
     });
 }
 
+// Display quiz questions
 function displayQuiz() {
     const quizDiv = document.getElementById('quiz');
     quizDiv.innerHTML = '';
@@ -152,7 +160,7 @@ function displayQuiz() {
                     <input type="radio" name="question${index}" value="${option}">
                     ${option}
                 </label>
-            `).join('')}
+            `).join('<br>')}
         `;
         quizDiv.appendChild(questionDiv);
     });
@@ -163,6 +171,7 @@ function displayQuiz() {
     quizDiv.appendChild(submitButton);
 }
 
+// Check quiz answers
 function checkAnswers() {
     let score = 0;
     quizQuestions.forEach((q, index) => {
@@ -174,6 +183,7 @@ function checkAnswers() {
     alert(`Your score is ${score} out of ${quizQuestions.length}`);
 }
 
+// Display grammar lessons
 function displayGrammar() {
     const grammarContent = document.getElementById('grammar-content');
     grammarContent.innerHTML = '';
@@ -188,6 +198,7 @@ function displayGrammar() {
     });
 }
 
+// On document load
 document.addEventListener('DOMContentLoaded', () => {
     displayVocabulary();
     displayQuiz();
