@@ -207,3 +207,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('next-card').addEventListener('click', nextFlashcard);
     document.getElementById('toggle-translation').addEventListener('click', toggleTranslation);
 });
+
